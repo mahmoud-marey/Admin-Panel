@@ -1,0 +1,10 @@
+﻿@model UserViewModel
+<tr>
+	<td>@Model.FullName</td>
+	<td>@Model.Username</td>
+	<td>@Model.Email</td>
+
+	<td>
+		<a href="/Users/Delete/@Model.Id" class="btn btn-danger rounded">Delete</a>
+	</td>
+</tr>

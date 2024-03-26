@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PhotoViewModel>
+@{
+	ViewData["Title"] = "Photos";
+}
+
+@section Styles{
+	<link rel="stylesheet" href="~/assets/Plugins/datatables/datatables.bundle.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/sitelogos/@ViewData["Logo"]" />
+}
+
+	<div class="alert bg-light-primary border border-primary d-flex flex-column flex-sm-row w-100 py-5 px-7 justify-content-between mb-10">
+		<div class="d-flex align-items-center">
+			<!--begin::Icon-->
+			<!--begin::Svg Icon | path: icons/duotune/files/fil024.svg-->
+			<span class="svg-icon svg-icon-2 svg-icon-primary me-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path opacity="0.3" d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z" fill="black" />
+					<path d="M9.2 3H3C2.4 3 2 3.4 2 4V19C2 19.6 2.4 20 3 20H21C21.6 20 22 19.6 22 19V7C22 6.4 21.6 6 21 6H12L10.4 3.60001C10.2 3.20001 9.7 3 9.2 3Z" fill="black" />
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+			<!--end::Icon-->
+			<!--begin::Content-->
+			<div class="d-flex flex-column pe-0 pe-sm-10">
+				<h5 class="mb-1">Photos</h5>
+			</div>
+			<!--end::Content-->
+			
+		</div>
+		<!--begin::Add-->
+		<a asp-action="Create" type="button" class="btn btn-sm btn-primary">
+
+			<i class="bi bi-plus-circle"></i> Add
+		</a>
+		<!--end::Add-->
+	</div>
+	<div class="card shadow-sm">
+		<partial name="_DataTableCardHeader" />
+		<div class="card-body pt-0">
+			<div class="table-responsive">
+				<table class="table table-striped gy-7 gs-7 js-data-table" data-document-title="Photos">
+					<thead>
+						<tr class="fw-semibold fs-6 text-gray-800 border-bottom border-gray-200">
+							<th>Image Name</th>
+							<th class="js-no-export">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+					@if (Model is not null)
+					{
+						@foreach (var post in Model)
+						{
+							<partial name="_PhotoTableRow" model="@post" />
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+	@section Plugins{
+	<script src="~/assets/Plugins/datatables/datatables.bundle.js"></script>
+}

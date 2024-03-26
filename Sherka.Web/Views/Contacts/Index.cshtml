@@ -1,0 +1,192 @@
+﻿@model ContactViewModel
+@{
+	ViewData["Title"] = "Contacts";
+}
+@section Styles{
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/sitelogos/@ViewData["Logo"]" />
+}
+
+<div class="alert bg-light-primary border border-primary d-flex flex-column flex-sm-row w-100 py-5 px-7 justify-content-between mb-10">
+	<div class="d-flex align-items-center">
+		<!--begin::Icon-->
+		<!--begin::Svg Icon | path: icons/duotune/files/fil024.svg-->
+		<span class="svg-icon svg-icon-2 me-2 mb-3 mt-2">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="black" />
+				<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="black" />
+			</svg>
+		</span>
+		<!--end::Svg Icon-->
+		<!--end::Icon-->
+		<!--begin::Content-->
+		<div class="d-flex flex-column pe-0 pe-sm-10">
+			<h5 class="mb-1">Contacts</h5>
+		</div>
+		<!--end::Content-->
+	</div>
+</div>
+<div class="card shadow-sm">
+	<div class="card-body ">
+		<div class="row">
+			<form method="post" asp-controller="Contacts" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="Email" type="text" class="form-control" placeholder="Email" />
+										<label asp-for="Email"></label>
+									</div>
+									<span asp-validation-for="Email" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="PhoneNumber1" type="text" class="form-control" placeholder="PhoneNumber1" />
+										<label asp-for="PhoneNumber1"></label>
+									</div>
+									<span asp-validation-for="PhoneNumber1" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="PhoneNumber2" type="text" class="form-control" placeholder="PhoneNumber2" />
+										<label asp-for="PhoneNumber2"></label>
+									</div>
+									<span asp-validation-for="PhoneNumber2" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="FacebookLink" type="text" class="form-control" placeholder="FacebookLink" />
+										<label asp-for="FacebookLink"></label>
+									</div>
+									<span asp-validation-for="FacebookLink" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="InstagramLink" type="text" class="form-control" placeholder="InstagramLink" />
+										<label asp-for="InstagramLink"></label>
+									</div>
+									<span asp-validation-for="InstagramLink" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="TwitterLink" type="text" class="form-control" placeholder="TwitterLink" />
+										<label asp-for="TwitterLink"></label>
+									</div>
+									<span asp-validation-for="TwitterLink" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="row">
+							<div class="col">
+								<div class="mb-5">
+									<div class="form-floating mb-2">
+										<input asp-for="Address" type="text" class="form-control" placeholder="Address" />
+										<label asp-for="Address"></label>
+									</div>
+									<span asp-validation-for="Address" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col-md-7">
+							<div class="row mb-5">
+								<div class="col  mb-2">
+									<div class="form-floating">
+										<input asp-for="GoogleMapAddress" type="text" class="form-control" placeholder="GoogleMapAddress" />
+										<label asp-for="GoogleMapAddress"></label>
+									</div>
+									<div class="form-text"> max width should be 1000</div>
+									<span asp-validation-for="GoogleMapAddress" class="text-danger d-block"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						@if (Model.GoogleMapAddress is not null)
+						{
+							<div class="row mb-5">
+								<div class="col">
+									<div class="" id="googleMap">
+										<a class="d-none" id="btn" onclick="displayGoogleMap('@Model.GoogleMapAddress')">Add</a>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">
+					<span class="indicator-label">
+						<i class="bi bi-check2"></i>
+						Save
+					</span>
+					<span class="indicator-progress">
+						Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+					</span>
+				</button>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+@section Scripts{
+	<script>
+		function displayGoogleMap(googleMap) {
+			var googleMapDiv = $('#googleMap');
+			googleMapDiv.html(googleMap);
+		}
+		$('#btn').trigger('click');
+
+	</script>
+	<partial name="_ValidationScriptsPartial" />
+}

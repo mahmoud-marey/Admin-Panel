@@ -1,0 +1,161 @@
+﻿	@model PostFormViewModel
+@{
+	ViewData["Title"] = "Post Form";
+}
+@section Styles{
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/sitelogos/@ViewData["Logo"]" />
+}
+
+<div class="alert bg-light-primary border border-primary d-flex flex-column flex-sm-row w-100 py-5 px-7 justify-content-between mb-10">
+	<div class="d-flex align-items-center">
+		<!--begin::Icon-->
+		<!--begin::Svg Icon | path: icons/duotune/files/fil024.svg-->
+		<span class="svg-icon svg-icon-2 svg-icon-primary me-2">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="black"></path>
+				<rect x="6" y="12" width="7" height="2" rx="1" fill="black"></rect>
+				<rect x="6" y="7" width="12" height="2" rx="1" fill="black"></rect>
+			</svg>
+		</span>
+		<!--end::Svg Icon-->
+		<!--end::Icon-->
+		<!--begin::Content-->
+		<div class="d-flex flex-column pe-0 pe-sm-10">
+			<h5 class="mb-1">@(Model.Id > 0 ? "Edit " : "Add ")Post</h5>
+		</div>
+		<!--end::Content-->
+	</div>
+</div>
+<div class="card shadow-sm">
+	<div class="card-body ">
+		<form method="post" asp-controller="Posts" enctype="multipart/form-data">
+			@if(Model.Id > 0){
+				<input type="hidden" asp-for="Id" />
+			}
+			<div class="row">
+				<div class="col-md-7">
+					<div class="mb-5">
+						<div>
+							<img id="ImagePreview" src="~/images/Posts/@(Model.ImageUrl is null ? "no-image.jpg" : Model.ImageUrl)" class="img-thumbnail" alt="Post Image">
+						</div>
+						<div class="form-floating mb-2">
+							<input asp-for="Image" type="file" class="form-control" placeholder="Image" accept=".jpg,jpeg,png" />
+							<label asp-for="Image"></label>
+						</div>
+						<span asp-validation-for="Image" class="text-danger d-block"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="Title" type="text" class="form-control" placeholder="Title" />
+									<label asp-for="Title"></label>
+								</div>
+								<span asp-validation-for="Title" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<textarea class="form-control" placeholder="Summary" asp-for="Summary"></textarea>
+									<label asp-for="Summary"></label>
+								</div>
+								<span asp-validation-for="Summary" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+					<!--start::SEO-->
+					<div class="row">
+						<div class="card text-bg-light mb-3 p-1" >
+							<div class="card-header mt-3 pb-2" style="align-self: self-end;
+																			min-height : 20px">
+								<h6>SEO محتوى متوافق مع محركات البحث </h6>
+							</div>
+							<div class="card-body mt-0 p-0">
+								<div class="row">
+									<div class="col">
+										<div class="mb-5">
+											<div class="form-floating mb-2">
+												<input asp-for="SEOTitle" type="text" class="form-control" placeholder="SEOTitle" />
+												<label asp-for="SEOTitle"></label>
+											</div>
+											<span asp-validation-for="SEOTitle" class="text-danger d-block"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="mb-5">
+											<div class="form-floating mb-2">
+												<textarea class="form-control" placeholder="SEOKeyWords" asp-for="SEOKeyWords"></textarea>
+												<label asp-for="SEOKeyWords"></label>
+											</div>
+											<span asp-validation-for="SEOKeyWords" class="text-danger d-block"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="mb-5">
+											<div class="form-floating mb-2">
+												<textarea class="form-control" placeholder="SEODiscription" asp-for="SEODiscription"></textarea>
+												<label asp-for="SEODiscription"></label>
+											</div>
+											<span asp-validation-for="SEODiscription" class="text-danger d-block"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<textarea class="form-control js-tiny" placeholder="Body" asp-for="Body"></textarea>
+									<label asp-for="Body"></label>
+								</div>
+								<span asp-validation-for="Body" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			@if(Model.DiscriptionImagesString is not null){
+				<ul class="d-none">
+					@foreach (var imgString in Model.DiscriptionImagesString)
+					{
+						<li class="imgname-src">@imgString</li>
+					}
+				</ul>
+				
+			}
+			<!--end::SEO-->
+			<button type="submit" class="btn btn-primary">
+				<span class="indicator-label">
+					<i class="bi bi-check2"></i>
+					Save
+				</span>
+				<span class="indicator-progress">
+					Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+				</span>
+			</button>
+		</form>
+	</div>
+</div>
+
+
+
+@section Scripts{
+	<script>initImageList();</script>
+	<partial name="_ValidationScriptsPartial" />
+		
+}

@@ -1,0 +1,58 @@
+﻿@model PhotoViewModel
+@{
+	ViewData["Title"] = "Add photo";
+}
+@section Styles{
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/sitelogos/@ViewData["Logo"]" />
+}
+
+
+<div class="card shadow-sm">
+	<div class="card-body ">
+		<h5 class="card-Title mb-7">Add Photo</h5>
+		<form method="post" asp-controller="AppPhotos" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-md-7 ">
+					<div class="mb-5">
+
+						<div class="form-floating mb-2">
+							<input asp-for="Image" type="file" class="form-control" placeholder="Image" accept=".jpg,jpeg,png" />
+							<label asp-for="Image"></label>
+						</div>
+						<span asp-validation-for="Image" class="text-danger d-block"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="ImgName" type="text" class="form-control" placeholder="ImgName" />
+									<label asp-for="ImgName"></label>
+								</div>
+								<span asp-validation-for="ImgName" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary">
+				<span class="indicator-label">
+					<i class="bi bi-check2"></i>
+					Save
+				</span>
+				<span class="indicator-progress">
+					Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+				</span>
+			</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts
+	{
+	<partial name="_ValidationScriptsPartial" />
+}

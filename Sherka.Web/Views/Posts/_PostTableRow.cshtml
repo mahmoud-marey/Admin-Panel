@@ -1,0 +1,12 @@
+﻿@model PostViewModel
+<tr>
+	<td>@Model.Title</td>
+	<td>@Model.CreatedAt</td>
+	<td>@Model.SEOTitle</td>
+	<td class="">
+		<div class="btn-group ms-20" role="group" >
+			<a href="/Posts/Edit/@Model.Id" class="btn btn-success me-2 rounded">Edit</a>
+			<a href="/Posts/Delete/@Model.Id" class="btn btn-danger rounded">Delete</a>
+		</div>
+	</td>
+</tr>

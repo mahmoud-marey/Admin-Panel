@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.2.2",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "js/bootstrap.min.js",
+        "css/bootstrap.css",
+        "css/bootstrap.css.map",
+        "css/bootstrap.min.css",
+        "css/bootstrap.min.css.map",
+        "js/bootstrap.bundle.js",
+        "js/bootstrap.bundle.js.map",
+        "js/bootstrap.bundle.min.js",
+        "js/bootstrap.bundle.min.js.map",
+        "js/bootstrap.js",
+        "js/bootstrap.js.map"
+      ]
+    },
+    {
+      "library": "tinymce@6.1.2",
+      "destination": "wwwroot/lib/tinymce/"
+    },
+    {
+      "library": "bootstrap-icons@1.10.2",
+      "destination": "wwwroot/assets/Home/css/bootstrap-icons/",
+      "files": [
+        "bootstrap-icons.svg",
+        "font/bootstrap-icons.json",
+        "font/bootstrap-icons.min.css"
+      ]
+    }
+  ]
+}

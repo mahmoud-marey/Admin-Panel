@@ -1,0 +1,9 @@
+﻿#kt_content{
+    padding: 0;
+}
+#cover {
+    background: url(../images/background.jpg) top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+}

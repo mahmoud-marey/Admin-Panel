@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease-in;
+}
+/*nav*/
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100%;
+  top: 0;
+  position: relative;
+  overflow: hidden;
+  position: relative;
+  padding-inline: 2rem;
+}
+
+/* Side nav */
+.topnav #myLinks {
+  display: none;
+}
+#myLinks {
+  padding: 3rem 2rem;
+  position: fixed;
+  inline-size: 250px;
+  block-size: 100%;
+  left: 0;
+  top: 0;
+  background-color: black;
+  z-index: 10;
+}
+#menuBtn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.close_btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/* Style navigation menu links */
+#myLinks a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav .logo {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.topnav a:hover {
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: inherit;
+  color: white;
+}
+
+.navbar-toggler-icon {
+  font-size: 1.5rem;
+  color: white;
+  border: none;
+}
+header {
+  display: block;
+  block-size: 60px;
+  background-color: black;
+  color: white;
+}
+.head__data {
+    object-fit:contain;
+  background-size: cover;
+}
+.header__content {
+  block-size: 100vh;
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fwpp {
+  text-decoration: none;
+  inline-size: 60px;
+  block-size: 60px;
+  background-color: #47d958;
+  margin-left: 1rem;
+  border-radius: 50%;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.fwpp-floating1 {
+  text-decoration: none;
+  margin: 0px, 5px;
+  inline-size: 60px;
+  block-size: 60px;
+  background-color: #47d958;
+  margin-left: 1rem;
+  border-radius: 50%;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 1rem;
+}
+.fwpp-floating2 {
+  text-decoration: none;
+  margin: 0px, 5px;
+  inline-size: 60px;
+  block-size: 60px;
+  background-color: #47d958;
+  margin-left: 1rem;
+  border-radius: 50%;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+}
+.fwpp i {
+  color: #fff;
+  font-size: 2rem;
+}
+.fwpp-floating1 i,
+.fwpp-floating2 i {
+  color: #fff;
+  font-size: 2rem;
+}
+.fwpp:hover {
+  background-color: #00c617;
+}
+.fwpp-floating1:hover,
+.fwpp-floating2:hover {
+  background-color: #00c617;
+}
+
+.card-img-top {
+  height: 220px;
+}
+
+.data__card {
+  border: solid 2px #eee;
+  border-radius: 5px;
+}

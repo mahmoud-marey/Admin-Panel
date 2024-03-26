@@ -1,0 +1,136 @@
+﻿@model AdminHomeViewModel
+@{
+	ViewData["Title"] = "Home settings";
+}
+@section Styles{
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/sitelogos/@Model.SiteLogoUrl" />
+
+}
+
+<div class="alert bg-light-primary border border-primary d-flex flex-column flex-sm-row w-100 py-5 px-7 justify-content-between mb-10">
+	<div class="d-flex align-items-center">
+		<!--begin::Icon-->
+		<!--begin::Svg Icon | path: icons/duotune/files/fil024.svg-->
+		<span class="svg-icon svg-icon-2 me-2 mb-3">
+			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M11 2.375L2 9.575V20.575C2 21.175 2.4 21.575 3 21.575H9C9.6 21.575 10 21.175 10 20.575V14.575C10 13.975 10.4 13.575 11 13.575H13C13.6 13.575 14 13.975 14 14.575V20.575C14 21.175 14.4 21.575 15 21.575H21C21.6 21.575 22 21.175 22 20.575V9.575L13 2.375C12.4 1.875 11.6 1.875 11 2.375Z" fill="currentColor" />
+			</svg>
+		</span>
+		<!--end::Svg Icon-->
+		<!--end::Icon-->
+		<!--begin::Content-->
+		<div class="d-flex flex-column pe-0 pe-sm-10">
+			<h5 class="mb-1">Home settings</h5>
+		</div>
+		<!--end::Content-->
+	</div>
+</div>
+<div class="card shadow-sm">
+	<div class="card-body ">
+		<form method="post" asp-controller="Admin" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-md-7 ">
+					<div class="mb-5">
+						<div>
+							<img id="ImagePreview" src="~/images/backgrounds/@(Model.HeaderBackgroundUrl is null ? "no-image.jpg" : Model.HeaderBackgroundUrl)" class="img-thumbnail" alt="Background Image">
+						</div>
+						<div class="form-floating mb-2">
+							<input asp-for="HeaderBackground" type="file" class="form-control" placeholder="HeaderBackground" accept=".jpg,jpeg,png" />
+							<label asp-for="HeaderBackground"></label>
+						</div>
+						<span asp-validation-for="HeaderBackground" class="text-danger d-block"></span>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="mb-5">
+						<div>
+							<img id="ImagePreview" src="~/images/sitelogos/@Model.SiteLogoUrl" class="img-thumbnail" alt="Post Image">
+						</div>
+						<div class="form-floating mb-2">
+							<input asp-for="SiteLogo" type="file" class="form-control" placeholder="SiteLogo" accept=".ico" />
+							<label asp-for="SiteLogo"></label>
+						</div>
+						<span asp-validation-for="SiteLogo" class="text-danger d-block"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="SiteTitle" type="text" class="form-control" placeholder="SiteTitle" />
+									<label asp-for="SiteTitle"></label>
+								</div>
+								<span asp-validation-for="SiteTitle" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="Keywords" type="text" class="form-control" placeholder="Keywords" />
+										<label asp-for="Keywords"></label>
+								</div>
+									<span asp-validation-for="Keywords" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="SiteDiscription" type="text" class="form-control" placeholder="SiteDiscription" />
+									<label asp-for="SiteDiscription"></label>
+								</div>
+								<span asp-validation-for="SiteDiscription" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="HeaderTitle" type="text" class="form-control" placeholder="HeaderTitle" />
+									<label asp-for="HeaderTitle"></label>
+								</div>
+								<span asp-validation-for="HeaderTitle" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="mb-5">
+								<div class="form-floating mb-2">
+									<input asp-for="HeaderDiscription" type="text" class="form-control" placeholder="HeaderDiscription" />
+									<label asp-for="HeaderDiscription"></label>
+								</div>
+								<span asp-validation-for="HeaderDiscription" class="text-danger d-block"></span>
+							</div>
+						</div>
+					</div>
+					
+			<button type="submit" class="btn btn-primary">
+				<span class="indicator-label">
+					<i class="bi bi-check2"></i>
+					Save
+				</span>
+				<span class="indicator-progress">
+					Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+				</span>
+			</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial" />
+}

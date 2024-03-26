@@ -1,0 +1,30 @@
+﻿@model ViewPostViewModel
+
+@{
+	ViewData["Title"] = Model.Title;
+	Layout = "_HomeLayout";
+}
+@section Meta{
+	<meta content="@Model.SEODiscription" name="description" />
+	<meta content="@Model.SEOKeyWords" name="keywords" />
+}
+
+	<div class="container mt-5 text-center">
+		<div class="card bg-light mb-3 p-5 card__data">
+			<img src="~/images/Posts/@Model.ImageUrl" class="card-img-top" alt="@Model.Title">
+			<div class="card-body">
+				<div class="row">
+					<h1 class="card-title">@Model.Title</h1>
+				</div>
+				<div class="row">
+					<p class="card-text">@Model.Summary</p>
+				</div>
+				<div class="row js-render-body">@Model.Body</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var body = $('.js-render-body')
+		body.html(body.text());
+
+	</script>

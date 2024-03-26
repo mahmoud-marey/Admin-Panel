@@ -1,0 +1,183 @@
+﻿@model HomeViewModel
+
+@{
+	ViewData["Title"] = Model.SiteTitle;
+	Layout = "_HomeLayout";
+}
+
+@section Meta{
+	<meta content="@Model.HeaderDescription" name="description" />
+	<meta content="@Model.Keywords" name="keywords" />
+}
+
+	@section Styles{
+	<link rel="shortcut icon" type="image/x-icon" href="~/images/sitelogos/@Model.SiteLogo" />
+
+}
+
+
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+		<div class="container d-flex justify-content-between align-items-center">
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="active " href="#hero">الرئيسية</a></li>
+					<li><a href="#about">من نحن</a></li>
+					<li><a href="#posts">المقالات</a></li>
+					<li><a href="#footer">اتصل بنا</a></li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+			<div class="logo">
+				<h1 class="text-light"><a href="#"><span>@Model.SiteTitle</span></a></h1>
+			</div>
+
+		</div>
+	</header><!-- End Header -->
+	<!-- ======= Hero Section ======= -->
+	<section id="hero" class="d-flex justify-cntent-center align-items-center"
+		 style="background-image: url(/images/backgrounds/@Model.ImageUrl);background-repeat: no-repeat;background-size: cover;height: 100vh;">
+		<div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+			<!-- Slide 1 -->
+			<div class="carousel-item active">
+				<div class="carousel-container">
+					<h2 class="animate__animated animate__fadeInDown">@Model.HeaderTitle</h2>
+					<p class="animate__animated animate__fadeInUp">@Model.HeaderDescription</p>
+					<div>
+						<a href="https://wa.me/@Model.WhatsappNumber" class="btn-get-started animate__animated animate__fadeInUp" style="font-size: 28px;padding: 11px;">
+							<i class="bi bi-whatsapp"></i>
+						</a>
+						<a href="tel:@Model.PhoneNumber1" class="btn-get-started animate__animated animate__fadeInUp" style="font-size: 28px;padding: 11px;">
+							<i class="bi bi-telephone"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- End Hero -->
+
+	<main id="main">
+
+		<!-- ======= About Section ======= -->
+		<section id="about" class="services">
+			<div class="container">
+
+				<div class="row text-center js-render-body" id="">@Model.About</div>
+			</div>
+		</section>
+		<!-- End About Section -->
+		<!-- ======= Posts Section ======= -->
+	@if (Model.Posts is not null)
+	{
+		<section class="why-us section-bg" data-aos="fade-up" date-aos-delay="200">
+			<div class="container">
+
+				<div class="row" style="justify-content: center;">
+					@foreach (var post in Model.Posts)
+					{
+						<partial name="_PostCardRow" model="post" />
+					}
+				</div>
+
+			</div>
+		</section>
+	}
+	<!-- End Posts Section -->
+</main><!-- End #main -->
+<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500" class="aos-init aos-animate">
+
+	<div class="footer-newsletter">
+		<div class="container">
+			<div class="row gx-4 gx-lg-5">
+				<div class="row mb-3">
+					<div class="col-md-4 mb-3 mb-md-0">
+						<div class="card py-4 h-100">
+							<div class="card-body text-center">
+								<i class="bi bi-geo-alt fs-5" style="color: #a2cce3;"></i>
+								<h4 class="text-uppercase m-0 mt-2" style="font-size: 18px;letter-spacing: 2px;font-weight: 400;">Address</h4>
+								<hr class="my-4 mx-auto text-primary">
+								<div class="small text-black-50">@Model.Address</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mb-3 mb-md-0">
+						<div class="card py-4 h-100">
+							<div class="card-body text-center">
+								<i class="bi bi-envelope fs-5" style="color: #a2cce3;"></i>
+								<h4 class="text-uppercase m-0 mt-2" style="font-size: 18px;letter-spacing: 2px;font-weight: 400;">Email</h4>
+								<hr class="my-4 mx-auto text-primary">
+								<div class="small text-black-50">@Model.Email</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 mb-3 mb-md-0">
+						<div class="card py-4 h-100">
+							<div class="card-body text-center">
+								<i class="bi bi-phone fs-5" style="color: #a2cce3;"></i>
+								<h4 class="text-uppercase m-0 mt-2" style="font-size: 18px;letter-spacing: 2px;font-weight: 400;">Phone</h4>
+								<hr class="my-4 mx-auto text-primary">
+								<div class="small text-black-50">@Model.PhoneNumber1</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="card py-4 ">
+							<div class="card-body text-center">
+								<div class="m-auto">
+									<iframe class="rounded" src="@Model.GoogleMapAddress"
+											width="100%"
+											height="500px"
+											style="border: 0"
+											allowfullscreen=""
+											loading="lazy"
+											referrerpolicy="no-referrer-when-downgrade"></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col footer-info">
+					<div class="social-links text-center mt-3">
+						<a href="@Model.TwitterLink" class="twitter"><i class="bi bi-twitter"></i></a>
+						<a href="@Model.FacebookLink" class="facebook"><i class="bi bi-facebook"></i></a>
+						<a href="@Model.InstagramLink" class="instagram"><i class="bi bi-instagram"></i></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="copyright">
+			جميع الحقوق محفوظة © لمنصة @Model.SiteTitle 2022
+		</div>
+		<div class="credits">
+			Made by <a href="https://wa.me/+201033460153" target="_blank">Mahmoud Marey</a>
+		</div>
+	</div>
+</footer>
+<a href="https://wa.me/@Model.WhatsappNumber" class="back-to-top d-flex align-items-center justify-content-center" style="border-radius: 50px; visibility: visible;opacity: unset;">
+	<i class="bi bi-whatsapp"></i>
+</a>
+<a href="@Model.PhoneNumber1" class="back-to-top d-flex align-items-center justify-content-center" style="border-radius: 50px;right: 60px;visibility: visible;opacity: unset;">
+	<i class="bi bi-telephone"></i>
+</a>
+
+<script>
+	var body = $('.js-render-body')
+	body.html(body.text());
+
+</script>

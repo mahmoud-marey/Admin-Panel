@@ -1,0 +1,13 @@
+﻿@model Post
+<div class="card m-3" style="width: 22rem;">
+	<a href="Posts/ViewPost/@Model.Id">
+		<img src="~/images/Posts/@Model.ImageUrl" class="card-img-top" alt="@Model.Title">
+	</a>
+	<div class="card-body">
+		<a href="Posts/ViewPost/@Model.Id">
+			<h5 class="card-title">@Model.Title</h5>
+		</a>
+		<p class="card-text text-truncate">@Model.Summary adshdohasodjasdhasodjasdgasdjduhjo</p>
+		<a href="Posts/ViewPost/@Model.Id" class="btn btn-primary">اقرأ المزيد</a>
+	</div>
+</div>

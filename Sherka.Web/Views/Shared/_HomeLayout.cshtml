@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>@ViewData["Title"]</title>
+    @await RenderSectionAsync("Meta", required: false)
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+	<link href="~/assets/home/css/animate.min.css" rel="stylesheet" />
+	<link href="~/assets/home/css/aos.css" rel="stylesheet" />
+	<link href="~/assets/home/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/assets/home/css/bootstrap-icons.css" rel="stylesheet" />
+	<link href="~/assets/home/css/boxicons.min.css" rel="stylesheet" />
+	<link href="~/assets/home/css/glightbox.min.css" rel="stylesheet" />
+	<link href="~/assets/home/css/swiper-bundle.min.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+	<link href="~/assets/home/css/style.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	@await RenderSectionAsync("Styles", required: false)
+ 
+
+</head>
+<body >
+
+        @RenderBody()
+	<!-- Vendor JS Files -->
+	<script src="~/assets/home/js/purecounter_vanilla.js"></script>
+	<script src="~/assets/home/js/aos.js"></script>
+	<script src="~/assets/home/js/bootstrap.bundle.min.js"></script>
+	<script src="~/assets/home/js/glightbox.min.js"></script>
+	<script src="~/assets/home/js/isotope.pkgd.min.js"></script>
+	<script src="~/assets/home/js/swiper-bundle.min.js"></script>
+	<script src="~/assets/home/js/noframework.waypoints.js"></script>
+	<script src="~/assets/home/js/validate.js"></script>
+	<!-- Template Main JS File -->
+	<script src="~/assets/home/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
